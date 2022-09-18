@@ -140,7 +140,7 @@ export function Posts() {
                     // 1. create a new like object
                     const newLike = {
                       id: likes.length + 1,
-                      postId: post.id,
+                      postId: post.id
                     };
 
                     // 2. send the new like to the server
