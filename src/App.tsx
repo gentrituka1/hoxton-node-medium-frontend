@@ -22,7 +22,7 @@ function App() {
           <Routes>
             <Route index element={<Navigate to="/posts" />} />
             <Route path="/posts" element={<Posts />} />
-            <Route path="/posts/:id" element={<SinglePost setPosts={setPosts} likes={likes} setLikes={setLikes} comments={comments} />} />
+            <Route path="/posts/:id" element={<SinglePost />} />
           </Routes>
       </main>
     </div>
