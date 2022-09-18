@@ -166,6 +166,16 @@
   color: crimson;
   font-size: 2rem;
 }
+
+.delete{
+  font-size: 2rem;
+  color: black;
+}
+
+.delete:hover{
+  animation: inAndOut 1s linear infinite;
+}
+
 .like:hover {
   animation: inAndOut 1s linear infinite;
 }

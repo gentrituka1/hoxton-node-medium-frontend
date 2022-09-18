@@ -3,16 +3,17 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Posts.css";
 import { BsFillHeartFill } from "react-icons/bs";
 import { BiCommentDetail } from "react-icons/bi";
+import {AiFillDelete} from "react-icons/ai"
 
 type Post = {
   id: number;
   title: string;
   content?: string;
   image?: string;
+  userId: number;
   published: boolean;
   likes: [];
   comments: [];
-  userId: number;
 };
 
 type Like = {
@@ -80,10 +81,9 @@ export function Posts() {
                     title: event.target.title.value,
                     content: event.target.content.value,
                     image: event.target.image.value,
-                    published: true,
-                    likes: [],
-                    comments: [],
-                    userId: 2
+                    userId: 2,
+                    published: true
+                    
                 }
             // POST the new post to the server
                 fetch('http://localhost:5000/posts', {
@@ -92,13 +92,12 @@ export function Posts() {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(newPost)
-                }).then((r) => r.json())
-                .then((newPostFromServer) => {
-                    // add the new post to the state
-                    setPosts([...posts, newPostFromServer])
-                })
-                
-
+                }).then(() => {
+                  fetch("http://localhost:5000/posts")
+                    .then((res) => res.json())
+                    .then((postsFromServer) => setPosts(postsFromServer));
+                }) 
+                event.target.reset()
         }}>
           <input type="text" name="title" placeholder="Title" />
           <input type="url" name="image" placeholder="Image URL" />
@@ -173,6 +172,17 @@ export function Posts() {
                 </button>
                 <h2>{getAllComments(post.id)}</h2>
               </div>
+              <button
+                onClick={() => {
+                  fetch(`http://localhost:5000/posts/${post.id}`, {
+                    method: "DELETE",
+                  }).then(() => {
+                    fetch("http://localhost:5000/posts")
+                      .then((res) => res.json())
+                      .then((postsFromServer) => setPosts(postsFromServer));
+                  });
+                }}
+              ><AiFillDelete className="icons delete" /></button>
             </div>
           </li>
         ))}
