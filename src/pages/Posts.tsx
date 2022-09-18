@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom";
+import "./Posts.css"
+import {BsFillHeartFill} from 'react-icons/bs'
+import {BiCommentDetail} from 'react-icons/bi'
 
 type Post = {
     id: number;
@@ -62,48 +65,52 @@ export function Posts() {
     }
 
   return (
-        <main className="main">
-            <h2>Posts</h2>
-            <ul>
+        <main className="posts">
+            <h2 className="h2">Posts</h2>
+            <ul className="posts-list">
                 {posts.map(post => 
-                    <Link to={`/posts/${post.id}`}>
-                    <li id="item" key={post.id}>
-                        <img src={post.image} alt={post.title} width={1000}/>
-                        <div>
-                            <h3>{post.title}</h3>
-                            <p>{post.content}</p>
-                        </div>
-                        <div>
-                            <button onClick={() => {
-                                // when the button is pressed, we want to add a like to this post
+                    <li id="posts-list-item" key={post.id}>
+                        <Link className="posts-links" to={`/posts/${post.id}`}>
+                            <img src={post.image} alt={post.title} width={1000}/>
+                            <div className="posts-content">
+                                <h3>{post.title}</h3>
+                                <p>{post.content}</p>
+                            </div>
+                        </Link>
+                        <div className="posts-likes-and-comments">
+                            <div className="posts-likes button">
+                                <button onClick={() => {
+                                    // when the button is pressed, we want to add a like to this post
 
-                                // 1. create a new like object
-                                const newLike = {
-                                    id: likes.length + 1,
-                                    postId: post.id
-                                }
+                                    // 1. create a new like object
+                                    const newLike = {
+                                        id: likes.length + 1,
+                                        postId: post.id
+                                    }
 
-                                // 2. send the new like to the server
-                                fetch(`http://localhost:5000/posts/${post.id}/likes`, {
-                                    method: 'POST',
-                                    headers: {
-                                        'Content-Type': 'application/json'
-                                    },
-                                    body: JSON.stringify(newLike)
-                                }).then(res => res.json())
-                                .then(() => {
-                                    // 3. update the likes state
-                                    setLikes([...likes, newLike])
-                                })
-                            }}>Like</button>
-                            <h2>{getAllLikes(post.id)}</h2>
-                            <button onClick={() => {
-                                navigate(`/posts/${post.id}`)
-                            }}>Comment</button>
-                            <h2>{getAllComments(post.id)}</h2>
+                                    // 2. send the new like to the server
+                                    fetch(`http://localhost:5000/posts/${post.id}/likes`, {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json'
+                                        },
+                                        body: JSON.stringify(newLike)
+                                    }).then(res => res.json())
+                                    .then(() => {
+                                        // 3. update the likes state
+                                        setLikes([...likes, newLike])
+                                    })
+                                }}><BsFillHeartFill className="icons like"/></button>
+                                <h2>{getAllLikes(post.id)}</h2>
+                            </div>
+                            <div className="posts-comments button">
+                                <button onClick={() => {
+                                    navigate(`/posts/${post.id}`)
+                                }}><BiCommentDetail className="icons comment" /></button>
+                                <h2>{getAllComments(post.id)}</h2>
+                            </div>
                         </div>
                     </li>
-                    </Link>
                 )}
             </ul>
         </main>

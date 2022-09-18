@@ -1,0 +1,107 @@
+.posts {
+  display: grid;
+  place-items: center;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  background: rgb(34, 193, 195);
+  background: rgb(238, 174, 202);
+  background: rgb(238, 174, 202);
+  background: linear-gradient(
+    172deg,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
+}
+.posts .h2 {
+  font-size: 2.5rem;
+  color: royalblue;
+  font-style: oblique;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+.posts-list {
+  list-style: none;
+  display: grid;
+  gap: 50px;
+}
+
+#posts-list-item {
+  background-color: #cfd6ea;
+}
+
+.posts-list li {
+  border: 1px solid grey;
+}
+
+.posts-links {
+  text-decoration: none;
+  color: black;
+}
+
+.posts-content {
+  border-bottom: 1px solid black;
+  padding-left: 10px;
+}
+
+.posts-content h3 {
+  font-size: 1.5rem;
+  color: chocolate;
+}
+
+.posts-content p {
+  font-size: 1.18rem;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.posts-likes-and-comments {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: space-evenly;
+}
+
+.button {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.icons {
+  color: crimson;
+  font-size: 2rem;
+}
+.like:hover {
+  animation: inAndOut 1s linear infinite;
+}
+
+.comment {
+  color: black;
+}
+
+.comment:hover {
+  animation: inAndOut 1s linear infinite;
+}
+
+@keyframes inAndOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.posts-likes-and-comments button {
+  all: unset;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.posts-likes-and-comments h2 {
+  text-decoration: none;
+  color: black;
+}

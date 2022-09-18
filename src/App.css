@@ -2,12 +2,12 @@
   height: 100vh;
   display: grid;
   grid-template:
-  "header header header" 100px
-  ".      main    ." 1fr /
-  350px   1fr     350px ;
+    "header header header" 100px
+    ".      main    ." 1fr /
+    350px 1fr 350px;
 }
 
-.header{
+.header {
   grid-area: header;
   padding-left: 20px;
   display: grid;
@@ -15,31 +15,36 @@
   gap: 100px;
   align-items: center;
   border-bottom: 1px solid grey;
+  background: rgb(238, 174, 202);
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 55%,
+    rgba(148, 187, 233, 1) 100%
+  );
 }
-.header .h1{
+.header .h1 {
   font-size: 2.5rem;
   text-decoration: none;
   font-weight: bold;
   color: rosybrown;
 }
 
-.header .h1:hover{
+.header .h1:hover {
   color: rgba(188, 143, 143, 0.699);
 }
 
-.header div .link{
+.header div .link {
   font-size: 1.5rem;
   text-decoration: none;
   color: royalblue;
   font-weight: bold;
   transition: all 0.5s ease-in-out;
 }
-.header div .link:hover{
+.header div .link:hover {
   font-size: 2rem;
   color: rgba(11, 21, 51, 0.973);
 }
 
-.main{
+.main {
   grid-area: main;
 }
-

@@ -13,11 +13,13 @@ function App() {
           <Link className='link' to="/posts">Posts</Link>
         </div>
       </header>
-        <Routes>
-          <Route index element={<Navigate to="/posts" />} />
-          <Route path="/posts" element={<Posts />} />
-          <Route path="/posts/:id" element={<Post />} />
-        </Routes>
+      <main className='main'>
+          <Routes>
+            <Route index element={<Navigate to="/posts" />} />
+            <Route path="/posts" element={<Posts />} />
+            <Route path="/posts/:id" element={<Post />} />
+          </Routes>
+      </main>
     </div>
   )
 }
