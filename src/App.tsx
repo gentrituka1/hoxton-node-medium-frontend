@@ -1,9 +1,14 @@
 import './App.css'
 import { Routes, Route, Navigate, Link } from 'react-router-dom'
-import { Posts } from './pages/Posts'
+import { Like, Post, Posts, Comment } from './pages/Posts'
 import SinglePost from './pages/SinglePost'
+import { useState } from 'react';
 
 function App() {
+
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [likes, setLikes] = useState<Like[]>([]);
+  const [comments, setComments] = useState<Comment[]>([]);
 
   return (
     <div className="App">
@@ -17,7 +22,7 @@ function App() {
           <Routes>
             <Route index element={<Navigate to="/posts" />} />
             <Route path="/posts" element={<Posts />} />
-            <Route path="/posts/:id" element={<SinglePost />} />
+            <Route path="/posts/:id" element={<SinglePost setPosts={setPosts} likes={likes} setLikes={setLikes} comments={comments} />} />
           </Routes>
       </main>
     </div>

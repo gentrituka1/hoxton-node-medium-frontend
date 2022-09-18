@@ -1,0 +1,36 @@
+.post-details {
+  display: grid;
+  place-items: center;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  background: rgb(34, 193, 195);
+  background: rgb(238, 174, 202);
+  background: rgb(238, 174, 202);
+  background: linear-gradient(172deg, #eeaeca 0%, #94bbe9 100%);
+}
+.post-details h4 {
+  color: #808792;
+}
+
+.single-post {
+  border-right: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 20px;
+}
+
+.user {
+}
+
+.single-post-details h1 {
+  font-size: 2.2rem;
+}
+
+.single-post-details h3,
+.single-post-details h5 {
+  color: #606570;
+}
+
+.user-name {
+  color: #1da1f2;
+}

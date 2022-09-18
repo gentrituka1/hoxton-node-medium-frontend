@@ -31,7 +31,6 @@ export function Posts() {
   const [posts, setPosts] = useState<Post[]>([]);
   const [likes, setLikes] = useState<Like[]>([]);
   const [comments, setComments] = useState<Comment[]>([]);
-  const [showComments, setShowComments] = useState<boolean>(false);
 
   let params = useParams();
 
