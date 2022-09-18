@@ -2,9 +2,6 @@ import React, { useEffect, useState } from 'react'
 import './SinglePost.css'
 import { Like, Post, Comment } from './Posts'
 import { useNavigate, useParams } from 'react-router-dom'
-import { AiFillDelete } from 'react-icons/ai'
-import { BsFillHeartFill } from 'react-icons/bs'
-import { BiCommentDetail } from 'react-icons/bi'
 
 type User = {
     id: number
@@ -34,18 +31,6 @@ export default function SinglePost() {
       .then((userFromServer) => setUsers(userFromServer))
   }, [])
 
-  function getAllLikes(postId: number) {
-    let numberOfLikes = likes.filter((like) => like.postId === postId);
-    return numberOfLikes.length;
-  }
-
-  function getAllComments(postId: number) {
-    let numberOfComments = comments.filter(
-      (comment) => comment.postId === postId
-    );
-    return numberOfComments.length;
-  }
-
   if(!post) {
     return <div>Loading</div>
   }
@@ -68,7 +53,6 @@ export default function SinglePost() {
         <img src={post.image} alt={post.title} width={600} />
         <p>{post.content}</p>
       </div>
-      
     </main>
   )
 }

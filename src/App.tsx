@@ -6,10 +6,6 @@ import { useState } from 'react';
 
 function App() {
 
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [likes, setLikes] = useState<Like[]>([]);
-  const [comments, setComments] = useState<Comment[]>([]);
-
   return (
     <div className="App">
       <header className='header'>
