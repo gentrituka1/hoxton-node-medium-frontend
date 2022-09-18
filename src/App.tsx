@@ -1,7 +1,7 @@
 import './App.css'
 import { Routes, Route, Navigate, Link } from 'react-router-dom'
 import { Posts } from './pages/Posts'
-import Post from './pages/Post'
+import SinglePost from './pages/SinglePost'
 
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
           <Routes>
             <Route index element={<Navigate to="/posts" />} />
             <Route path="/posts" element={<Posts />} />
-            <Route path="/posts/:id" element={<Post />} />
+            <Route path="/posts/:id" element={<SinglePost />} />
           </Routes>
       </main>
     </div>

@@ -5,7 +5,7 @@ import { BsFillHeartFill } from "react-icons/bs";
 import { BiCommentDetail } from "react-icons/bi";
 import {AiFillDelete} from "react-icons/ai"
 
-type Post = {
+export type Post = {
   id: number;
   title: string;
   content?: string;
@@ -16,12 +16,12 @@ type Post = {
   comments: [];
 };
 
-type Like = {
+export type Like = {
   id: number;
   postId: number;
 };
 
-type Comment = {
+export type Comment = {
   id: number;
   content: string;
   postId: number;
