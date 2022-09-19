@@ -37,19 +37,19 @@ export function Posts() {
   let navigate = useNavigate();
 
   useEffect(() => {
-    fetch("http://localhost:5000/posts")
+    fetch("http://localhost:4000/posts")
       .then((res) => res.json())
       .then((postsFromServer) => setPosts(postsFromServer));
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/likes")
+    fetch("http://localhost:4000/likes")
       .then((res) => res.json())
       .then((likesFromServer) => setLikes(likesFromServer));
   }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5000/comments")
+    fetch("http://localhost:4000/comments")
       .then((res) => res.json())
       .then((commentsFromServer) => setComments(commentsFromServer));
   }, []);
@@ -85,14 +85,14 @@ export function Posts() {
                     
                 }
             // POST the new post to the server
-                fetch('http://localhost:5000/posts', {
+                fetch('http://localhost:4000/posts', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify(newPost)
                 }).then(() => {
-                  fetch("http://localhost:5000/posts")
+                  fetch("http://localhost:4000/posts")
                     .then((res) => res.json())
                     .then((postsFromServer) => setPosts(postsFromServer));
                 }) 
@@ -143,7 +143,7 @@ export function Posts() {
                     };
 
                     // 2. send the new like to the server
-                    fetch(`http://localhost:5000/posts/${post.id}/likes`, {
+                    fetch(`http://localhost:4000/posts/${post.id}/likes`, {
                       method: "POST",
                       headers: {
                         "Content-Type": "application/json",
@@ -173,10 +173,10 @@ export function Posts() {
               </div>
               <button
                 onClick={() => {
-                  fetch(`http://localhost:5000/posts/${post.id}`, {
+                  fetch(`http://localhost:4000/posts/${post.id}`, {
                     method: "DELETE",
                   }).then(() => {
-                    fetch("http://localhost:5000/posts")
+                    fetch("http://localhost:4000/posts")
                       .then((res) => res.json())
                       .then((postsFromServer) => setPosts(postsFromServer));
                   });

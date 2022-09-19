@@ -20,13 +20,13 @@ export default function SinglePost() {
   let navigate = useNavigate()
 
   useEffect(() => {
-    fetch(`http://localhost:5000/posts/${params.id}`)
+    fetch(`http://localhost:4000/posts/${params.id}`)
       .then((res) => res.json())
       .then((postFromServer) => setPost(postFromServer))
   }, [])
 
   useEffect(() => {
-    fetch(`http://localhost:5000/users`)
+    fetch(`http://localhost:4000/users`)
       .then((res) => res.json())
       .then((userFromServer) => setUsers(userFromServer))
   }, [])

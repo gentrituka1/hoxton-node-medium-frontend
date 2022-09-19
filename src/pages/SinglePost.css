@@ -3,6 +3,7 @@
   place-items: center;
   border-left: 1px solid black;
   border-right: 1px solid black;
+  border-bottom: 1px solid black;
   background: rgb(34, 193, 195);
   background: rgb(238, 174, 202);
   background: rgb(238, 174, 202);
@@ -13,9 +14,8 @@
 }
 
 .single-post {
-  border-right: 1px solid black;
-  border-left: 1px solid black;
-  border-bottom: 1px solid black;
+  border-right: 1px solid grey;
+  border-left: 1px solid grey;
   padding: 20px;
 }
 
