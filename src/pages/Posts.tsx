@@ -121,7 +121,7 @@ export function Posts() {
         </form>
       </div>
       <ul className="posts-list">
-        {posts.map((post) => (
+        {posts.reverse().map((post) => (
           <li id="posts-list-item" key={post.id}>
             <Link className="posts-links" to={`/posts/${post.id}`}>
               <img src={post.image} alt={post.title} width={1000} />
